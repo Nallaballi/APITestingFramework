@@ -18,6 +18,12 @@
         <class name="APIClass.SendGetRequestUsingRestAssured"/>
       </classes>
     </test> <!-- This is the second test -->
+    
+        <test name="Test3">
+      <classes>
+        <class name="APIClass.SendGetRequestUsingRestAssured"/>
+      </classes>
+    </test> <!-- This is the third test -->
   
   
 </suite> <!-- Suite - 2021-April-API-RahulArora -->
