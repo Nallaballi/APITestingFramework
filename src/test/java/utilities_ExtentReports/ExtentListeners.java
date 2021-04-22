@@ -1,8 +1,15 @@
 package utilities_ExtentReports;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.Date;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -14,11 +21,14 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
+import utilities_JavaMail.MonitoringMail;
+import utilities_JavaMail.TestConfig;
 
 
 
-public class ExtentListeners implements ITestListener {
 
+public class ExtentListeners implements ITestListener,ISuiteListener {
+	static String messageBody;
 	static Date d = new Date();
 	static String fileName = "Extent_" + d.toString().replace(":", "_").replace(" ", "_") + ".html";
 
@@ -98,6 +108,34 @@ public class ExtentListeners implements ITestListener {
 			extent.flush();
 		}
 
+	}
+
+	@Override
+	public void onStart(ISuite suite) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFinish(ISuite suite) {
+	
+		try {
+			messageBody="http://" + InetAddress.getLocalHost().getHostAddress() + ":8080/job/API%20Testing%20Framework/My_20Extent_20Reports_20from_20Git/"+fileName;
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		MonitoringMail mail = new MonitoringMail();
+		try {
+			mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messageBody);
+		} catch (AddressException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
