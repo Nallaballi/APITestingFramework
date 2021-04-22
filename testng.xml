@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite - 2021-April-API-RahulArora">
+	
+	<listeners>
+		<listener class-name="utilities_ExtentReports.ExtentListeners"/>
+	</listeners>
+
+    <test name="Test1">
+      <classes>
+        <class name="APIClass.SendGetRequestUsingRestAssured"/>
+      </classes>
+    </test> <!-- This is the first test -->
+  
+    <test name="Test2">
+      <classes>
+        <class name="APIClass.SendGetRequestUsingRestAssured"/>
+      </classes>
+    </test> <!-- This is the second test -->
+  
+  
+</suite> <!-- Suite - 2021-April-API-RahulArora -->
