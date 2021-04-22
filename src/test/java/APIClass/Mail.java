@@ -6,7 +6,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 import org.testng.annotations.Test;
 import utilities_JavaMail.MonitoringMail;
-import utilities_JavaMail.TestConfig;
+import utilities_JavaMail.MailConfig;
 
 
 public class Mail
@@ -25,7 +25,7 @@ public class Mail
 		}
 		
 		MonitoringMail mail = new MonitoringMail();
-		mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messageBody);
+		mail.sendMail(MailConfig.server, MailConfig.from, MailConfig.to, MailConfig.subject, messageBody);
 		
 
 	}

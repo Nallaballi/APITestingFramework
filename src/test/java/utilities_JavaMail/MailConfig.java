@@ -1,12 +1,12 @@
 package utilities_JavaMail;
-public class TestConfig{
+public class MailConfig{
 
 
 	
 	public static String server="smtp.gmail.com";
 	public static String from = "nallaballi@gmail.com";
 	public static String password = "People$753";
-	public static String[] to ={"nallaballi@gmail.com","neenapk@yahoo.com"};
+	public static String[] to ={"nallaballi@gmail.com"};
 	public static String subject = "Project Report";
 	
 	public static String messageBody ="TestMessage";

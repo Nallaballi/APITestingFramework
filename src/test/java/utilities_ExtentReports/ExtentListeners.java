@@ -22,7 +22,7 @@ import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 
 import utilities_JavaMail.MonitoringMail;
-import utilities_JavaMail.TestConfig;
+import utilities_JavaMail.MailConfig;
 
 
 
@@ -128,7 +128,7 @@ public class ExtentListeners implements ITestListener,ISuiteListener {
 		
 		MonitoringMail mail = new MonitoringMail();
 		try {
-			mail.sendMail(TestConfig.server, TestConfig.from, TestConfig.to, TestConfig.subject, messageBody);
+			mail.sendMail(MailConfig.server, MailConfig.from, MailConfig.to, MailConfig.subject, messageBody);
 		} catch (AddressException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
